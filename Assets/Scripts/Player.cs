@@ -19,18 +19,20 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
-    }
-
+    // Movimiento Player
     void FixedUpdate()
     {
-        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
+        Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
     }
 
+    void OnMove(InputValue value)
+    {
+        inputVec = value.Get<Vector2>();
+    }
+
+    
+    // Giro sprite Player
     void LateUpdate()
     {
         anim.SetFloat("Speed", inputVec.magnitude);
