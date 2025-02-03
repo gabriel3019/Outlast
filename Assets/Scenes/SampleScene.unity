@@ -262,7 +262,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: -800190965, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -367,7 +367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
   speed: 3
-FondoJuego
 --- !u!95 &231192866
 Animator:
   serializedVersion: 5
@@ -419,7 +418,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
- FondoJuego
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +526,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 31.379238
+  orthographic size: 8.888889
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5109,7 +5107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1304559308, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13778,7 +13776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 284898317}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1970352283
 MonoBehaviour:
@@ -18135,9 +18133,9 @@ Tilemap:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 284898317}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 231192861}
   - {fileID: 660861559}
   - {fileID: 1693115493}
+  - {fileID: 1970352282}
