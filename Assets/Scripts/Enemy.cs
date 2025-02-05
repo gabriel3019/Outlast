@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         if (!isLive)
             return;
-        
+
         Vector2 dirVec = target.position - rigid.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
@@ -35,6 +35,12 @@ public class Enemy : MonoBehaviour
         if (!isLive)
             return;
 
-         spriter.flipX =target.position.x < rigid.velocity.x;
+        spriter.flipX = target.position.x < rigid.velocity.x;
+    }
+
+    // Cuando se activa, pone como target a Player
+    private void OnEnable()
+    {
+        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
     }
 }
