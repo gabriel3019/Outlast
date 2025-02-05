@@ -12,7 +12,7 @@ public class PoolManager : MonoBehaviour
     {
         pools = new List<GameObject>[prefabs.Length];
 
-        for (int i = 0; i < pools.Length; ++i)
+        for (int i = 0; i < pools.Length; i++)
         {
             pools[i] = new List<GameObject>();
         }
