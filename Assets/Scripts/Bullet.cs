@@ -12,11 +12,8 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-
         rigid = GetComponent<Rigidbody2D>();
-
     }
-
 
     public void Init(float damage, int per, Vector3 dir)
     {
@@ -37,7 +34,7 @@ public class Bullet : MonoBehaviour
 
         per--;
 
-        if(per == -1)
+        if (per == -1)
         {
             rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);

@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
             default:
                 timer += Time.deltaTime;
 
-                if(timer > speed)
+                if (timer > speed)
                 {
                     timer = 0f;
                     Fire();
@@ -57,8 +57,6 @@ public class Weapon : MonoBehaviour
 
         if (id == 0)
             Batch();
-
-
     }
 
     public void Init()
@@ -102,7 +100,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-
+    // Disparo de balas
     void Fire()
     {
         if (!player.scanner.nearestTarget)
@@ -117,6 +115,5 @@ public class Weapon : MonoBehaviour
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
 
         bullet.GetComponent<Bullet>().Init(damage, count, dir);
-
     }
 }
