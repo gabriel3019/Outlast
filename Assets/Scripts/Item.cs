@@ -29,15 +29,17 @@ public class Item : MonoBehaviour
 
     public void OnClick()
     {
-       switch (data.itemType){
+        switch (data.itemType)
+        {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
-                if (level == 0){
+                if (level == 0)
+                {
                     GameObject newWeapon = new GameObject();
                     weapon = newWeapon.AddComponent<Weapon>();
                     weapon.Init(data);
-               }
-               else
+                }
+                else
                 {
                     float nextDamage = data.baseDamage;
                     int nextCount = 0;
@@ -52,12 +54,14 @@ public class Item : MonoBehaviour
                 break;
             case ItemData.ItemType.Glove:
             case ItemData.ItemType.Shoe:
-                if (level == 0){
+                if (level == 0)
+                {
                     GameObject newGear = new GameObject();
                     gear = newGear.AddComponent<Gear>();
                     gear.Init(data);
                 }
-               else{
+                else
+                {
                     float nextRate = data.damages[level];
                     gear.LevelUp(nextRate);
                 }
@@ -69,7 +73,8 @@ public class Item : MonoBehaviour
                 break;
         }
 
-        if (level == data.damages.Length){
+        if (level == data.damages.Length)
+        {
             GetComponent<Button>().interactable = false;
         }
     }

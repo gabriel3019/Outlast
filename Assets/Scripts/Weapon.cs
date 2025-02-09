@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
     public void Init(ItemData data)
     {
         // Basic Set
-        name = "Weapon " + data.itemId; 
+        name = "Weapon " + data.itemId;
         transform.parent = player.transform;
         transform.localPosition = Vector3.zero;
 
@@ -66,14 +66,17 @@ public class Weapon : MonoBehaviour
         damage = data.baseDamage;
         count = data.baseCount;
 
-        for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++){
-            if(data.projectile == GameManager.instance.pool.prefabs[i]){
-            prefabId = i;
-            break;
+        for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++)
+        {
+            if (data.projectile == GameManager.instance.pool.prefabs[i])
+            {
+                prefabId = i;
+                break;
             }
         }
 
-        switch (id){
+        switch (id)
+        {
             case 0:
                 speed = 150;
                 Batch();
@@ -82,6 +85,10 @@ public class Weapon : MonoBehaviour
                 speed = 0.4f;
                 break;
         }
+        
+        Hand hand = player.hands[(int)data.itemType];
+        hand.spriter.sprite = data.hand;
+        hand.gameObject.SetActive(true);
 
         player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
