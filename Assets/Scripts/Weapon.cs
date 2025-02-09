@@ -10,19 +10,12 @@ public class Weapon : MonoBehaviour
     public int count;
     public float speed;
 
-
-
     float timer;
     Player player;
 
     void Awake()
     {
-        player = GetComponentInParent<Player>();
-    }
-
-    void Start()
-    {
-        Init();
+        player = GameManager.instance.player;
     }
 
     void Update()
@@ -30,7 +23,7 @@ public class Weapon : MonoBehaviour
         switch (id)
         {
             case 0:
-                transform.Rotate(Vector3.forward * speed * Time.deltaTime);
+                transform.Rotate(Vector3.back * speed * Time.deltaTime);
                 break;
             default:
                 timer += Time.deltaTime;
@@ -57,20 +50,40 @@ public class Weapon : MonoBehaviour
 
         if (id == 0)
             Batch();
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
-    public void Init()
+    public void Init(ItemData data)
     {
-        switch (id)
-        {
+        // Basic Set
+        name = "Weapon " + data.itemId; 
+        transform.parent = player.transform;
+        transform.localPosition = Vector3.zero;
+
+        // Property Set
+        id = data.itemId;
+        damage = data.baseDamage;
+        count = data.baseCount;
+
+        for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++){
+            if(data.projectile == GameManager.instance.pool.prefabs[i]){
+            prefabId = i;
+            break;
+            }
+        }
+
+        switch (id){
             case 0:
-                speed = -150;
+                speed = 150;
                 Batch();
                 break;
             default:
-                speed = 0.3f;
+                speed = 0.4f;
                 break;
         }
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     void Batch()
@@ -117,3 +130,4 @@ public class Weapon : MonoBehaviour
         bullet.GetComponent<Bullet>().Init(damage, count, dir);
     }
 }
+
