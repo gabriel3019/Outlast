@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemId: 0
-  itemName: Negocios
-  itemDesc: 
+  itemName: Pala
+  itemDesc: "Da\xF1o aumenta {0} %\r\nAgregar {1} objeto"
   itemIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   baseDamage: 4.5
   baseCount: 3

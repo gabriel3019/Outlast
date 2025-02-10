@@ -15,7 +15,7 @@ MonoBehaviour:
   itemType: 1
   itemId: 1
   itemName: Escopeta
-  itemDesc: 
+  itemDesc: "Da\xF1o aumenta {0} %\r\nA\xF1ade {1} penetraci\xF3n"
   itemIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   baseDamage: 3
   baseCount: 0
