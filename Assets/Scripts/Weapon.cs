@@ -20,6 +20,9 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         switch (id)
         {
             case 0:
@@ -85,7 +88,7 @@ public class Weapon : MonoBehaviour
                 speed = 0.4f;
                 break;
         }
-        
+
         Hand hand = player.hands[(int)data.itemType];
         hand.spriter.sprite = data.hand;
         hand.gameObject.SetActive(true);

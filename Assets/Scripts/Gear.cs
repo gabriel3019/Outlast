@@ -28,11 +28,12 @@ public class Gear : MonoBehaviour
 
     void ApplyGear()
     {
-        switch (type) {
-          case ItemData.ItemType.Glove:
-                RateUp(); 
+        switch (type)
+        {
+            case ItemData.ItemType.Glove:
+                RateUp();
                 break;
-          case ItemData.ItemType.Shoe:
+            case ItemData.ItemType.Shoe:
                 SpeedUp();
                 break;
         }
@@ -42,8 +43,10 @@ public class Gear : MonoBehaviour
     {
         Weapon[] weapons = transform.parent.GetComponentsInChildren<Weapon>();
 
-        foreach (Weapon weapon in weapons){
-            switch (weapon.id){
+        foreach (Weapon weapon in weapons)
+        {
+            switch (weapon.id)
+            {
                 case 0:
                     weapon.speed = 150 + (150 * rate);
                     break;

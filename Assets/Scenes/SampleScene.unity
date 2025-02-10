@@ -1021,6 +1021,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1354493282}
+        m_TargetAssemblyTypeName: LevelUp, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &384022960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7063,6 +7075,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1354493282}
+        m_TargetAssemblyTypeName: LevelUp, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1108883895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7580,6 +7604,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1354493282}
+        m_TargetAssemblyTypeName: LevelUp, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1256768501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7830,6 +7866,7 @@ GameObject:
   - component: {fileID: 1354493279}
   - component: {fileID: 1354493281}
   - component: {fileID: 1354493280}
+  - component: {fileID: 1354493282}
   m_Layer: 5
   m_Name: LevelUp
   m_TagString: Untagged
@@ -7846,7 +7883,7 @@ RectTransform:
   m_GameObject: {fileID: 1354493278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 485403489}
@@ -7895,6 +7932,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354493278}
   m_CullTransparentMesh: 1
+--- !u!114 &1354493282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354493278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8ee71e4a93c8547b2ec38dd7566f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375578208
 GameObject:
   m_ObjectHideFlags: 0
@@ -8936,6 +8985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d715495c493064a846484def88ee40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLive: 1
   gameTime: 0
   maxGameTime: 20
   health: 0
@@ -8943,9 +8993,10 @@ MonoBehaviour:
   level: 0
   kill: 0
   exp: 0
-  nextExp: 03000000050000000a0000006400000096000000d20000001801000068010000c201000058020000
+  nextExp: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
   pool: {fileID: 1976789279}
   player: {fileID: 231192864}
+  uiLevelUp: {fileID: 1354493282}
 --- !u!4 &1693115493
 Transform:
   m_ObjectHideFlags: 0
@@ -9001,8 +9052,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 45, y: -70.200005}
-  m_SizeDelta: {x: 90, y: 19.2}
+  m_AnchoredPosition: {x: 45, y: -87.875}
+  m_SizeDelta: {x: 90, y: 24.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706650317
 MonoBehaviour:
@@ -9067,6 +9118,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1706650317}
         m_TargetAssemblyTypeName: Item, Assembly-CSharp
         m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1354493282}
+        m_TargetAssemblyTypeName: LevelUp, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18496,6 +18559,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2058520514}
         m_TargetAssemblyTypeName: Item, Assembly-CSharp
         m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1354493282}
+        m_TargetAssemblyTypeName: LevelUp, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
