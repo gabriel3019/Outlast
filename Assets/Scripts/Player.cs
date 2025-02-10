@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float speed;
     public Scanner scanner;
     public Hand[] hands;
+    public RuntimeAnimatorController[] animCon;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -21,6 +22,11 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         scanner = GetComponent<Scanner>();
         hands = GetComponentsInChildren<Hand>(true);
+    }
+
+    private void OnEnable()
+    {
+        anim.runtimeAnimatorController = animCon[GameManager.instance.playerId];
     }
 
     void Update()
@@ -67,11 +73,11 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.isLive)
             return;
 
-        GameManager.instance.health -= Time.deltaTime * 10; 
+        GameManager.instance.health -= Time.deltaTime * 10;
 
-        if(GameManager.instance.health < 0)
+        if (GameManager.instance.health < 0)
         {
-            for (int index=2; index < transform.childCount; index++)
+            for (int index = 2; index < transform.childCount; index++)
             {
                 transform.GetChild(index).gameObject.SetActive(false);
             }
