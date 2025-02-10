@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void GetExp()
     {
-        if(!isLive)
+        if (!isLive)
             return;
 
         exp++;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Result : MonoBehaviour
 {
     public GameObject[] titles;
-    
+
     public void Lose()
     {
         titles[0].SetActive(true);
