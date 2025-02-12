@@ -12115,7 +12115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d715495c493064a846484def88ee40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLive: 1
+  isLive: 0
   gameTime: 0
   maxGameTime: 20
   playerId: 0
