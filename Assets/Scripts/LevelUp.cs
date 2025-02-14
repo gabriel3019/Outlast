@@ -19,6 +19,8 @@ public class LevelUp : MonoBehaviour
         Next();
         rect.localScale = Vector3.one;
         GameManager.instance.Stop();
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
+        AudioManager.instance.EffectBgm(true);
     }
 
     // Esconder menu subir de nivel
@@ -26,6 +28,8 @@ public class LevelUp : MonoBehaviour
     {
         rect.localScale = Vector3.zero;
         GameManager.instance.Resume();
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        AudioManager.instance.EffectBgm(false);
     }
 
     public void Select(int index)

@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip bgmClip;
     public float bgmVolume;
     AudioSource bgmPlayer;
+    AudioHighPassFilter bgmEffect;
 
     [Header("#SFX")]
     public AudioClip[] sfxClips;
@@ -17,6 +18,8 @@ public class AudioManager : MonoBehaviour
     public int channels;
     AudioSource[] sfxPlayers;
     int channelIndex;
+
+    public enum Sfx { Dead, Hit, LevelUp = 3, Lose, Melee, Range = 7, Select, Win };
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class AudioManager : MonoBehaviour
         bgmPlayer.loop = true;
         bgmPlayer.volume = bgmVolume;
         bgmPlayer.clip = bgmClip;
+        bgmEffect = Camera.main.GetComponent<AudioHighPassFilter>();
 
         GameObject sfxObject = new GameObject("SfxPlayer");
         sfxObject.transform.parent = transform;
@@ -42,8 +46,47 @@ public class AudioManager : MonoBehaviour
         {
             sfxPlayers[i] = sfxObject.AddComponent<AudioSource>();
             sfxPlayers[i].playOnAwake = false;
+            sfxPlayers[i].bypassListenerEffects = true;
             sfxPlayers[i].volume = sfxVolume;
+        }
+    }
 
+    public void PlayBgm(bool isPlay)
+    {
+        if (isPlay)
+        {
+            bgmPlayer.Play();
+        }
+        else
+        {
+            bgmPlayer.Stop();
+        }
+    }
+
+    public void EffectBgm(bool isPlay)
+    {
+        bgmEffect.enabled = isPlay;
+    }
+
+    public void PlaySfx(Sfx sfx)
+    {
+        for (int i = 0; i < sfxPlayers.Length; i++)
+        {
+            int loopIndex = (i + channelIndex) % sfxPlayers.Length;
+
+            if (sfxPlayers[loopIndex].isPlaying)
+                continue;
+
+            int ranIndex = 0;
+            if (sfx == Sfx.Hit || sfx == Sfx.Melee)
+            {
+                ranIndex = Random.Range(0, 2);
+            }
+
+            channelIndex = loopIndex;
+            sfxPlayers[loopIndex].clip = sfxClips[(int)sfx + ranIndex];
+            sfxPlayers[loopIndex].Play();
+            break;
         }
     }
 }
