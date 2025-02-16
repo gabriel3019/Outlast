@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Transform uiJoy;
     public GameObject enemyCleaner;
     public HighScoreManager highScoreManager;
+    public GameObject uiRecord;
 
 
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
         player.gameObject.SetActive(true);
         uiLevelUp.Select(playerId % 2);
+        uiRecord.SetActive(false);
         Resume();
 
         AudioManager.instance.PlayBgm(true);

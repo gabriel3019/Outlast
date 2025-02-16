@@ -1,9 +1,11 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HighScoreManager : MonoBehaviour
 {
     private string highScoreFilePath;
+    public Text highScoreText;
 
     void Start()
     {
@@ -12,7 +14,7 @@ public class HighScoreManager : MonoBehaviour
 
         // Cargar el récord al inicio del juego
         int highScore = LoadHighScore();
-        Debug.Log("Récord actual: " + highScore);
+        highScoreText.text = ("Record: " + highScore);
     }
 
     public void SaveHighScore(int kill)
@@ -24,8 +26,6 @@ public class HighScoreManager : MonoBehaviour
             {
                 writer.WriteLine(kill); // Escribir la nueva puntuación
             }
-
-            Debug.Log("Nuevo récord guardado: " + kill);
         }
     }
 
@@ -42,8 +42,6 @@ public class HighScoreManager : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log("No se encontró un récord previo.");
         return 0; // Si no hay archivo, devolver 0 o un valor por defecto
     }
 }
