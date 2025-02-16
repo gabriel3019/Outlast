@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.isLive)
             return;
 
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
+        //inputVec.x = Input.GetAxisRaw("Horizontal");
+        //inputVec.y = Input.GetAxisRaw("Vertical");
     }
 
     // Movimiento Player
@@ -49,10 +49,6 @@ public class Player : MonoBehaviour
         rigid.MovePosition(rigid.position + nextVec);
     }
 
-    void OnMove(InputValue value)
-    {
-        inputVec = value.Get<Vector2>();
-    }
 
 
     // Giro sprite Player
@@ -86,5 +82,10 @@ public class Player : MonoBehaviour
             anim.SetTrigger("Dead");
             GameManager.instance.GameOver();
         }
+    }
+
+    void OnMove(InputValue value)
+    {
+        inputVec = value.Get<Vector2>();
     }
 }
