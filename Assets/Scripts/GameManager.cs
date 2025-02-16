@@ -25,12 +25,15 @@ public class GameManager : MonoBehaviour
     public Result uiResult;
     public Transform uiJoy;
     public GameObject enemyCleaner;
+    public HighScoreManager highScoreManager;
+
 
 
     void Awake()
     {
         instance = this;
         Application.targetFrameRate = 60;
+        highScoreManager = FindObjectOfType<HighScoreManager>();
     }
 
     public void GameStart(int id)
@@ -61,6 +64,8 @@ public class GameManager : MonoBehaviour
         uiResult.Lose();
         Stop();
 
+        highScoreManager.SaveHighScore(kill);
+
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
     }
@@ -79,6 +84,8 @@ public class GameManager : MonoBehaviour
         uiResult.gameObject.SetActive(true);
         uiResult.Win();
         Stop();
+
+        highScoreManager.SaveHighScore(kill);
 
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Win);
