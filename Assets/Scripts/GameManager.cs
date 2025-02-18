@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void GameQuit()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Menu");
     }
 
     void Update()
