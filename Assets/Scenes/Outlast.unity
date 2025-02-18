@@ -2960,7 +2960,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10.77778
+  orthographic size: 8.888889
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10203,10 +10203,22 @@ MonoBehaviour:
     spriteType: 0
     health: 15
     speed: 1.5
-  - spawnTime: 0.15
+  - spawnTime: 0.25
     spriteType: 1
     health: 35
     speed: 2
+  - spawnTime: 0.225
+    spriteType: 2
+    health: 60
+    speed: 2.4
+  - spawnTime: 0.2
+    spriteType: 3
+    health: 90
+    speed: 2.8
+  - spawnTime: 0.8
+    spriteType: 4
+    health: 200
+    speed: 3.2
   leveltime: 0
 --- !u!1 &1161071789
 GameObject:
@@ -12675,7 +12687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLive: 0
   gameTime: 0
-  maxGameTime: 20
+  maxGameTime: 300
   playerId: 0
   health: 0
   maxHealth: 100
@@ -17414,7 +17426,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: Mata 1.000 zombis para desbloquear
+  m_Text: Mata a 1.000 zombis para desbloquear
 --- !u!222 &1867333239
 CanvasRenderer:
   m_ObjectHideFlags: 0
