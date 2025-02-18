@@ -138,10 +138,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0); // Recarga la escena del índice 0 (principal)
     }
 
-    // Método que lleva al jugador al menú principal
+    // Método que lleva te hace salir del juego
     public void GameQuit()
     {
-        SceneManager.LoadScene("Menu"); // Carga la escena de menú
+        Application.Quit();
     }
 
     // Método que se ejecuta en cada actualización del juego
