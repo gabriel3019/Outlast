@@ -52,8 +52,8 @@ public class AchiveManager : MonoBehaviour
         {
             string achiveName = achives[i].ToString();
             bool isUnlock = PlayerPrefs.GetInt(achiveName) == 1;
-            lockCharacter[i].SetActive(!isUnlock);
-            unlockCharacter[i].SetActive(isUnlock);
+            lockCharacter[i].SetActive(!isUnlock);  // Desactiva personajes bloqueados
+            unlockCharacter[i].SetActive(isUnlock); // Activa personajes desbloqueados
         }
     }
 
@@ -62,7 +62,7 @@ public class AchiveManager : MonoBehaviour
         // Revisa en cada frame si algún logro ha sido alcanzado
         foreach (Achive achive in achives)
         {
-            CheckAchive(achive);
+            CheckAchive(achive);  // Verifica si se ha desbloqueado un logro
         }
     }
 
@@ -84,24 +84,24 @@ public class AchiveManager : MonoBehaviour
         // Si el logro se cumple y aún no ha sido desbloqueado, lo guarda y muestra una notificación
         if (isAchived && PlayerPrefs.GetInt(achive.ToString()) == 0)
         {
-            PlayerPrefs.SetInt(achive.ToString(), 1);
+            PlayerPrefs.SetInt(achive.ToString(), 1); // Marca el logro como alcanzado
 
             // Muestra la notificación correspondiente al logro desbloqueado
             for (int i = 0; i < uiNotice.transform.childCount; i++)
             {
                 bool isActive = i == (int)achive;
-                uiNotice.transform.GetChild(i).gameObject.SetActive(isActive);
+                uiNotice.transform.GetChild(i).gameObject.SetActive(isActive);  // Activa la notificación correspondiente
             }
-            StartCoroutine(NoticeRoutine());
+            StartCoroutine(NoticeRoutine());  // Llama a la rutina de la notificación
         }
     }
 
     // Muestra la notificación del logro desbloqueado por 5 segundos
     IEnumerator NoticeRoutine()
     {
-        uiNotice.SetActive(true);
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
-        yield return wait;
-        uiNotice.SetActive(false);
+        uiNotice.SetActive(true);  // Activa la interfaz de notificación
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);  // Reproduce el sonido de logro
+        yield return wait;  // Espera 5 segundos
+        uiNotice.SetActive(false);  // Desactiva la interfaz de notificación
     }
 }
