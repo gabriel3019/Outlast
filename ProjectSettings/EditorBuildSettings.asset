@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 1a95ce037ca8bf84ebef423c82c8ed3d
   - enabled: 1
     path: Assets/Scenes/Outlast.unity
     guid: a798df4c5e6801d46ab7079261be7c64
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Creditos.unity
     guid: 8f71aa0193932da438ce237febd14ee1
   m_configObjects: {}
